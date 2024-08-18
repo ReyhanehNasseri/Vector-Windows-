@@ -8,7 +8,7 @@ class vector{
 	vector(int _N, T _Val);
 	~vector();
 	T operator[] (int i);
-	void push_back(T newindex);
+	void pushback(T newindex);
 	void insert(int insertindex , T newindex );
 	void remove (int index);
     void print ();
@@ -57,7 +57,7 @@ T vector<T>::operator[] (int i){
 
 
 template <class T>
-void vector<T>::push_back(T newindex){
+void vector<T>::pushback(T newindex){
 	T** tmp =  data;
         N++;
         data = new T*[N];
@@ -87,23 +87,7 @@ void vector<T>::insert(int insertindex , T newindex){
 
 
 }
-// template <class T>
-// void vector<T>::remove(int index){
-// 	 T** temp = data;
-//         N--;
-//         data = new T* [N];
-//         for ( int i = 0; i < index; i++)
-//         {
-//             data[i] = temp[i];
-//         }
-//         for ( int i = index; i < N - 1; i++)
-//         {
-			
-//             data[i] = temp[i + 1];
-			
-//         }
 
-// }
 
 template <class T>
 void vector<T>::remove(int index){
@@ -117,9 +101,9 @@ void vector<T>::remove(int index){
 
 template <class T>
 void vector<T>::print() {
-    cout<<"{";
+    cout<<"{ ";
 	for(int i = 0 ; i<N ; i++){
-        cout<<*(data[i])<<" , ";
+        cout<<*(data[i])<<"  ";
 
 
     }
