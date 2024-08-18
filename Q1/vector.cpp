@@ -35,24 +35,93 @@ int main(){
   }
   cout<<"size of our vector after adding shape objects : "<<vector2.size_of()<<endl<<endl;
 
+
+
+
+//PARTTHREE:vector based on T**:
   cout<<"Q1-PARTTHREE : "<<endl<<endl;
-  clock_t start = clock();
+  cout<<"including functionalities yo the T** based vector : "<<endl;
+  vector<string>vector3(1,"hi");
+  vector3.pushback("test");
+  vector3.pushback("yes");
+  vector3.insert(1,"no");
+  vector3.remove(1);
+  vector3.print();
+  cout<<endl<<endl;
 
-//PARTTHREE:Perform several "insert" and "remove" functions on the created objects
-  for(int i = 0 ; i<500 ; i++){
-    vector2.insert(5,shape);
-    vector2.remove(100);
-  }
-
-  clock_t end = clock();
-
-  cout<<"clock (T*) : " << end-start<<endl;
 
 //PARTFOUR:adding our functions in a new vector by T** method  
   vector<Cube>vector5(4,shape);
   for(int i = 0 ; i<100000/oneshape ; i++){
-    vector5.push_back(shape);
+    vector5.pushback(shape);
+  }  
+
+  
+//PARTFIVE:Perform several "insert" and "remove" functions on the created objects and compare them
+  //compare insert func :
+
+  cout<<"PARTFOUR : "<<endl<<endl;
+  clock_t start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector2.insert(5,shape);
   }
+
+  clock_t end = clock();
+
+  cout<<"insert clock (T*) : " << end-start<<endl;
+
+  start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector5.insert(5,shape);
+  }
+
+  end = clock();
+
+  cout<<"insert clock (T**) : " << end-start<<endl<<endl;
+
+  //compare remove func :
+  start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector5.remove(5);
+  }
+
+  end = clock();
+
+  cout<<"remove clock (T*) : " << end-start<<endl;
+
+  start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector2.remove(5);
+  }
+
+  end = clock();
+
+  cout<<"remove clock (T**) : " << end-start<<endl<<endl;
+
+  //compare pushback func :
+  start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector5.pushback(shape);
+  }
+
+  end = clock();
+
+  cout<<"pushback clock (T*) : " << end-start<<endl;
+  start = clock();
+
+  for(int i = 0 ; i<500 ; i++){
+    vector2.pushback(shape);
+  }
+
+  end = clock();
+
+  cout<<"pushback clock (T**) : " << end-start<<endl<<endl;
+
 
 //PARTFIVE :Perform several "insert" and "remove" functions on the created objects
   start = clock();
@@ -63,8 +132,6 @@ int main(){
   }
 
    end = clock();
-
-  cout<<"clock (T**) : " << end-start<<endl<<endl; 
 
 
     return 0;
