@@ -11,6 +11,7 @@ class vector{
 	void push_back(T newindex);
 	void insert(int insertindex , T newindex );
 	void remove (int index);
+    void print ();
 	int size(){
 		return N;
 	}
@@ -86,21 +87,44 @@ void vector<T>::insert(int insertindex , T newindex){
 
 
 }
+// template <class T>
+// void vector<T>::remove(int index){
+// 	 T** temp = data;
+//         N--;
+//         data = new T* [N];
+//         for ( int i = 0; i < index; i++)
+//         {
+//             data[i] = temp[i];
+//         }
+//         for ( int i = index; i < N - 1; i++)
+//         {
+			
+//             data[i] = temp[i + 1];
+			
+//         }
+
+// }
+
 template <class T>
 void vector<T>::remove(int index){
-	 T** temp = data;
-        N--;
-        data = new T* [N];
-        for ( int i = 0; i < index; i++)
-        {
-            data[i] = temp[i];
-        }
-        for ( int i = index; i < N - 1; i++)
-        {
-			
-            data[i] = temp[i + 1];
-			
-        }
+       delete data[index];
+       for(int i = index ; i<N -1; i++){
+        data[i]=data[i+1];
+       }
+       N--;
+
+}
+
+template <class T>
+void vector<T>::print() {
+    cout<<"{";
+	for(int i = 0 ; i<N ; i++){
+        cout<<*(data[i])<<" , ";
+
+
+    }
+    cout<<"}";
+    cout<<endl;
 
 }
 	
