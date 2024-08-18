@@ -123,16 +123,6 @@ int main(){
   cout<<"pushback clock (T**) : " << end-start<<endl<<endl;
 
 
-//PARTFIVE :Perform several "insert" and "remove" functions on the created objects
-  start = clock();
-
-  for(int i = 0 ; i<500 ; i++){
-    vector5.insert(5,shape);
-    vector5.remove(100);
-  }
-
-   end = clock();
-
 
     return 0;
 }
